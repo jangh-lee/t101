@@ -1,0 +1,18 @@
+# [터미널1] S3 버킷 모니터링
+NICKNAME=janghun
+while true; do aws s3 ls s3://$NICKNAME-t101study-tfstate-week3 --recursive --human-readable --summarize ; echo "------------------------------"; date; sleep 1; done
+
+# [터미널2] EC2 모니터링
+while true; do aws ec2 describe-instances --query "Reservations[*].Instances[*].{PublicIPAdd:PublicIpAddress,InstanceName:Tags[?Key=='Name']|[0].Value,Status:State.Name}" --filters Name=instance-state-name,Values=running --output text ; echo "------------------------------" ; sleep 1; done
+
+# 새 workspace 생성
+terraform workspace new mywork1
+
+# 현재 workspace 확인
+terraform workspace show
+
+# 모든 workspace 목록 확인 (현재 위치는 *)
+terraform workspace list
+
+# workspace 전환
+terraform workspace select mywork1
