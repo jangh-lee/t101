@@ -45,3 +45,12 @@ resource "ncloud_lb_target_group" "test" {
   }
   algorithm_type = "RR"
 }
+
+
+## connect to target (after apply)
+
+# resource "ncloud_lb_target_group_attachment" "test" {
+#   for_each = toset(ncloud_auto_scaling_group.auto.server_instance_no_list)
+#   target_group_no = ncloud_lb_target_group.test.target_group_no
+#   target_no_list = [each.value]
+# }
