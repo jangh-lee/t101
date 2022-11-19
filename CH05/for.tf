@@ -1,9 +1,9 @@
 variable "names" {
   description = "A list of names"
   type        = list(string)
-  default     = ["gasida", "akbun", "fullmoon"]
+  default     = ["JANG", "HUN", "LEE"]
 }
 
-output "upper_names" {
-  value = [for name in var.names : upper(name)]
+output "lower_names" {
+  value = [for name in var.names : lower(name)]
 }
