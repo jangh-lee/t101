@@ -8,9 +8,6 @@ resource "ncloud_block_storage" "storage" {
     size = "10"
 }
 
-
-
-
 resource "ncloud_server" "server" {
   subnet_no                 = ncloud_subnet.test.id
   name                      = "my-tf-server"
