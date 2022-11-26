@@ -6,7 +6,7 @@ resource "aws_instance" "example" {
   ami           = "ami-0eddbd81024d3fbdd"
   instance_type = "t2.micro"
   key_name      = "$SSHKP"
-  vpc_security_group_ids      = ["\${aws_security_group.stg_mysg.id}"]
+  vpc_security_group_ids      = ["${aws_security_group.stg_mysg.id}"]
 
   # Attach the instance profile
   iam_instance_profile = aws_iam_instance_profile.instance.name
